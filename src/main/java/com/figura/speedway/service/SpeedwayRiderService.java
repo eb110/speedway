@@ -6,6 +6,8 @@ import com.figura.speedway.serviceInterfaces.SpeedwayRiderServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SpeedwayRiderService implements SpeedwayRiderServiceInterface {
 
@@ -27,6 +29,14 @@ public class SpeedwayRiderService implements SpeedwayRiderServiceInterface {
         return speedwayRiderRepository.findById(id).orElse(null);
     }
 
+    public Speedway_rider getSpeedwayRiderBySurname(String surname){
+        return speedwayRiderRepository.findBySurname(surname).orElse(null);
+    }
+
+    public List<Speedway_rider> getSpeedwayRidersBySurname(String surname){
+        return speedwayRiderRepository.getRidersBySurname(surname);
+    }
+
     @Override
     public void deleteSpeedwayRider(int id) {
         speedwayRiderRepository.deleteById(id);
@@ -35,7 +45,9 @@ public class SpeedwayRiderService implements SpeedwayRiderServiceInterface {
     @Override
     public void updateSpeedwayRider(Speedway_rider speedway_rider, int id) {
         Speedway_rider rider = speedwayRiderRepository.findById(id).orElse(null);
-        if(rider != null)
+        if(rider != null) {
+            speedway_rider.setId(id);
             speedwayRiderRepository.save(speedway_rider);
+        }
     }
 }
