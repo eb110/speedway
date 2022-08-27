@@ -8,12 +8,9 @@ import java.util.Date;
 public class Speedway_team {
 
 
-    public Speedway_team() {
-    }
-
     @Id
     @Column(name = "id")
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")
@@ -30,6 +27,8 @@ public class Speedway_team {
         this.fullName = fullName;
     }
 
+
+    public Speedway_team() {}
     public void setId(int id) {
         this.id = id;
     }

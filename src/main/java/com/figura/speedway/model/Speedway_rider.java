@@ -9,7 +9,7 @@ public class Speedway_rider {
 
     @Id
     @Column(name = "id")
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")

@@ -24,4 +24,6 @@ public class SpeedwayTeamController {
     public Speedway_team getTeam(@PathVariable("name") String name){
         return speedwayTeamService.getSpeedwayTeamByName(name);
     }
+    @DeleteMapping(value = "/deleteTeam/{id}")
+    public void deleteTeam(@PathVariable("id") int id) {speedwayTeamService.deleteSpeedwayTeam(id);}
 }
