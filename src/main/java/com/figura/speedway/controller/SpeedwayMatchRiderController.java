@@ -1,12 +1,11 @@
 package com.figura.speedway.controller;
 
+import com.figura.speedway.dto.DtoSpeedwayMatch;
 import com.figura.speedway.model.Speedway_match_rider;
+import com.figura.speedway.model.Speedway_rider;
 import com.figura.speedway.service.SpeedwayMatchRiderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/matchRider")
@@ -19,4 +18,5 @@ public class SpeedwayMatchRiderController {
         public Speedway_match_rider getMatchRiderById(@PathVariable("id") int id){
             return speedwayMatchRiderService.getSpeedwayMatchRiderById(id);
     }
+
 }
