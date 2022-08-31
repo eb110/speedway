@@ -6,6 +6,10 @@ import com.figura.speedway.serviceInterfaces.SpeedwayMatchServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 @Service
 public class SpeedwayMatchService implements SpeedwayMatchServiceInterface {
 
@@ -20,5 +24,15 @@ public class SpeedwayMatchService implements SpeedwayMatchServiceInterface {
     @Override
     public Speedway_match getSpeedwayMatchById(int id) {
         return speedwayMatchRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Iterable<Speedway_match> getAllSpeedwayMatches(){
+        return speedwayMatchRepository.findAll();
+    }
+
+    @Override
+    public int getTheLastSpeedwayMatchId(){
+        return speedwayMatchRepository.getLastId();
     }
 }

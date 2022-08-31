@@ -1,8 +1,17 @@
 package com.figura.speedway.model;
 
-import javax.persistence.*;
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table(name = "speedway_team")
 @Entity(name = "speedway_team")
 public class Speedway_team {
@@ -10,8 +19,11 @@ public class Speedway_team {
 
     @Id
     @Column(name = "id")
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @OneToMany(targetEntity = Speedway_match_rider.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_id_team", referencedColumnName = "id")
+    private List<Speedway_match_rider> matchRiderList;
 
     @Column(name = "name")
     private String name;
@@ -19,29 +31,4 @@ public class Speedway_team {
     @Column(name = "full_name")
     private String fullName;
 
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-
-    public Speedway_team() {}
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
 }

@@ -22,4 +22,14 @@ public class SpeedwayMatchRiderService implements SpeedwayMatchRiderServiceInter
     public Speedway_match_rider getSpeedwayMatchRiderById(int id) {
         return speedwayMatchRiderRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Iterable<Speedway_match_rider> getAllSpeedwayMatchRiders() {
+        return speedwayMatchRiderRepository.findAll();
+    }
+
+    @Override
+    public int getTheLastSpeedwayMatchRiderId() {
+        return speedwayMatchRiderRepository.getLastId();
+    }
 }

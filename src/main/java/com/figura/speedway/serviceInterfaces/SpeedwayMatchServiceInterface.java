@@ -6,4 +6,6 @@ public interface SpeedwayMatchServiceInterface {
 
     public Speedway_match saveSpeedwayMatch(Speedway_match speedway_match);
     public Speedway_match getSpeedwayMatchById(int id);
+    public Iterable<Speedway_match> getAllSpeedwayMatches();
+    public int getTheLastSpeedwayMatchId();
 }

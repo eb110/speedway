@@ -19,4 +19,16 @@ public class SpeedwayMatchRiderController {
             return speedwayMatchRiderService.getSpeedwayMatchRiderById(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/addMatchRider")
+    private String add(@RequestBody Speedway_match_rider speedway_match_rider){
+        speedwayMatchRiderService.saveSpeedwayMatchRider(speedway_match_rider);
+        return "the speedway match rider has been added to the data base";
+    }
+    @GetMapping("/getLastMatchRiderId")
+    public int getLastMatchRiderId(){
+        int res = speedwayMatchRiderService.getTheLastSpeedwayMatchRiderId();
+        return res;
+    }
+
 }
