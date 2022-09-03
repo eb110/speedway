@@ -25,5 +25,10 @@ public class SpeedwayTeamService implements SpeedwayTeamServiceInterface {
     @Override
     public void deleteSpeedwayTeam(int id) {speedwayTeamRepository.deleteById(id);}
 
+    @Override
+    public int getTheLastId() {
+        return speedwayTeamRepository.getLastId();
+    }
+
 
 }

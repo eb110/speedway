@@ -19,7 +19,7 @@ public class InsertedMatchController {
         return "the match name has been inserted";
     }
 
-    @GetMapping("checkIfExist")
+    @GetMapping("/checkIfExist/{name}")
     public Boolean checkIfExist(@PathVariable("name") String name){
         return insertedMatchService.checkIfAlreadyExist(name);
         }

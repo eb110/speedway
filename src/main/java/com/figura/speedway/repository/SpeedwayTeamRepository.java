@@ -11,4 +11,7 @@ public interface SpeedwayTeamRepository extends JpaRepository <Speedway_team, In
 
     Optional<Speedway_team> findByName(String name);
 
+    @Query(value="SELECT max(id) FROM speedway_team", nativeQuery = true)
+    int getLastId();
+
 }

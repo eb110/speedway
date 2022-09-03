@@ -51,5 +51,9 @@ public class Speedway_rider {
     private int fullPerfects;
     @Column(name = "paid_perfects")
     private int paidPerfects;
+    @Column(name = "created")
+    private Date created;
+    @Column(name = "last_updated")
+    private Date lastUpdated;
 
 }

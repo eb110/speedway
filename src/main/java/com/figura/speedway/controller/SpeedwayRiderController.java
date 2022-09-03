@@ -21,7 +21,7 @@ public class SpeedwayRiderController {
         return "the rider has been added to the data base";
     }
 
-    @GetMapping("getAllRiders")
+    @GetMapping("/getAllRiders")
         public Iterable<Speedway_rider> getAllRidersFrom(){
             return speedwayRiderService.getAllSpeedwayRiders();
         }
