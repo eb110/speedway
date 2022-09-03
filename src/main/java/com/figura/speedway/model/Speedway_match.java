@@ -33,5 +33,9 @@ public class Speedway_match {
 
     @Column(name = "type_of_game")
     private String typeOfGame;
+    @Column(name = "created")
+    private Date created;
+    @Column(name = "last_updated")
+    private Date lastUpdated;
 
 }

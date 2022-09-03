@@ -56,4 +56,5 @@ public class Speedway_rider {
     @Column(name = "last_updated")
     private Date lastUpdated;
 
+
 }

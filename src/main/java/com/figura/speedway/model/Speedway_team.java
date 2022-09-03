@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -30,5 +31,9 @@ public class Speedway_team {
 
     @Column(name = "full_name")
     private String fullName;
+    @Column(name = "created")
+    private Date created;
+    @Column(name = "last_updated")
+    private Date lastUpdated;
 
 }

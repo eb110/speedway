@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -31,5 +32,9 @@ public class Speedway_match_rider {
     private String homeAwaySide;
     @Column(name = "pkt")
     private String pkt;
+    @Column(name = "created")
+    private Date created;
+    @Column(name = "last_updated")
+    private Date lastUpdated;
 
 }
