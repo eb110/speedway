@@ -50,4 +50,9 @@ public class SpeedwayRiderService implements SpeedwayRiderServiceInterface {
             speedwayRiderRepository.save(speedway_rider);
         }
     }
+
+    @Override
+    public int getLastId() {
+        return speedwayRiderRepository.getLastId();
+    }
 }

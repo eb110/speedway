@@ -17,4 +17,6 @@ public interface SpeedwayRiderServiceInterface {
 
     public void updateSpeedwayRider(Speedway_rider  speedway_rider, int id);
 
+    public int getLastId();
+
 }

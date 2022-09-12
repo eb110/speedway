@@ -53,4 +53,10 @@ public class SpeedwayRiderController {
         return "the rider has been updated";
     }
 
+    @GetMapping("/getLastRiderId")
+    public int getLastMatchId(){
+        int res = speedwayRiderService.getLastId();
+        return res;
+    }
+
 }

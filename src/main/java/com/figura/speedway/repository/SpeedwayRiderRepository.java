@@ -13,4 +13,7 @@ public interface SpeedwayRiderRepository extends JpaRepository <Speedway_rider, 
    // @Query("SELECT sr from speedway_rider sr where sr.surname==?1")
     @Query(value="SELECT * from speedway_rider sr where sr.surname=?1", nativeQuery = true)
     List<Speedway_rider> getRidersBySurname(String surname);
+
+    @Query(value="SELECT max(id) FROM speedway_rider", nativeQuery = true)
+    int getLastId();
 }
