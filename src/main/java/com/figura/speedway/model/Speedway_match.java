@@ -18,7 +18,8 @@ import java.util.List;
 public class Speedway_match {
 
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int id;
 
     @OneToMany(targetEntity = Speedway_match_rider.class, cascade = CascadeType.ALL)

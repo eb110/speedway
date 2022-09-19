@@ -17,14 +17,15 @@ import java.util.Date;
 public class Speedway_match_rider {
 
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int id;
 
-    @Column(name = "fk_id_rider")
-    private int fkIdRider;
-    @Column(name = "fk_id_team")
+    @Column(name = "fk_id_team", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int fkIdTeam;
-    @Column(name = "fk_id_match")
+    @Column(name = "fk_id_rider", nullable = false, columnDefinition = "INT(11) UNSIGNED")
+    private int fkIdRider;
+    @Column(name = "fk_id_match", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int fkIdMatch;
     @Column(name = "rider_match_number")
     private int riderMatchNumber;
