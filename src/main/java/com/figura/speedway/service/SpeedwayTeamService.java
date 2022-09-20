@@ -1,6 +1,6 @@
 package com.figura.speedway.service;
 
-import com.figura.speedway.model.Speedway_team;
+import com.figura.speedway.model.SpeedwayTeam;
 import com.figura.speedway.repository.SpeedwayTeamRepository;
 import com.figura.speedway.serviceInterfaces.SpeedwayTeamServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +13,12 @@ public class SpeedwayTeamService implements SpeedwayTeamServiceInterface {
     SpeedwayTeamRepository speedwayTeamRepository;
 
     @Override
-    public Speedway_team saveSpeedwayTeam(Speedway_team speedway_team) {
+    public SpeedwayTeam saveSpeedwayTeam(SpeedwayTeam speedway_team) {
         return speedwayTeamRepository.save(speedway_team);
     }
 
     @Override
-    public Speedway_team getSpeedwayTeamByName(String name) {
+    public SpeedwayTeam getSpeedwayTeamByName(String name) {
         return speedwayTeamRepository.findByName(name).orElse(null);
     }
 

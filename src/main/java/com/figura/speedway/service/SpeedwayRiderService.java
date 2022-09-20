@@ -1,6 +1,6 @@
 package com.figura.speedway.service;
 
-import com.figura.speedway.model.Speedway_rider;
+import com.figura.speedway.model.SpeedwayRider;
 import com.figura.speedway.repository.SpeedwayRiderRepository;
 import com.figura.speedway.serviceInterfaces.SpeedwayRiderServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,41 +14,33 @@ public class SpeedwayRiderService implements SpeedwayRiderServiceInterface {
     @Autowired
     SpeedwayRiderRepository speedwayRiderRepository;
     @Override
-    public Speedway_rider saveSpeedwayRider(Speedway_rider speedway_rider) {
+    public SpeedwayRider saveSpeedwayRider(SpeedwayRider speedway_rider) {
         return speedwayRiderRepository.save(speedway_rider);
     }
     @Override
-    public Iterable<Speedway_rider> getAllSpeedwayRiders() {
+    public Iterable<SpeedwayRider> getAllSpeedwayRiders() {
         return speedwayRiderRepository.findAll();
     }
     @Override
-    public Speedway_rider getSpeedwayRiderById(int id) {
-        return speedwayRiderRepository.findById(id).orElse(null);
+    public SpeedwayRider getSpeedwayRiderById(int id) {
+        return speedwayRiderRepository.findById(id).orElseThrow();
     }
-    public Speedway_rider getSpeedwayRiderBySurname(String surname){
-        return speedwayRiderRepository.findBySurname(surname).orElse(null);
-    }
-    public List<Speedway_rider> getSpeedwayRidersBySurname(String surname){
-        return speedwayRiderRepository.getRidersBySurname(surname);
-    }
+    public SpeedwayRider getSpeedwayRiderBySurname(String surname){ return speedwayRiderRepository.findBySurname(surname).orElseThrow(); }
+    public List<SpeedwayRider> getSpeedwayRidersBySurname(String surname){ return speedwayRiderRepository.getRidersBySurname(surname); }
     @Override
     public void deleteSpeedwayRider(int id) {
         speedwayRiderRepository.deleteById(id);
     }
     @Override
-    public void updateSpeedwayRider(Speedway_rider speedway_rider, int id) {
-        Speedway_rider rider = speedwayRiderRepository.findById(id).orElse(null);
-        if(rider != null) {
-            speedway_rider.setId(id);
-            speedwayRiderRepository.save(speedway_rider);
-        }
-    }
+    public void updateSpeedwayRider(SpeedwayRider speedway_rider) {
+        SpeedwayRider test = speedway_rider;
+        speedwayRiderRepository.save(speedway_rider); }
     @Override
     public int getLastId() {
         return speedwayRiderRepository.getLastId();
     }
     @Override
-    public Speedway_rider getLastRider() {
+    public SpeedwayRider getLastRider() {
         return speedwayRiderRepository.getLastRider();
     }
 }

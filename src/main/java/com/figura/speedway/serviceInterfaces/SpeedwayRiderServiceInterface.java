@@ -1,19 +1,19 @@
 package com.figura.speedway.serviceInterfaces;
 
-import com.figura.speedway.model.Speedway_rider;
+import com.figura.speedway.model.SpeedwayRider;
 
 import java.util.List;
 
 public interface SpeedwayRiderServiceInterface {
 
-    public Speedway_rider saveSpeedwayRider(Speedway_rider speedway_rider);
-    public Iterable<Speedway_rider> getAllSpeedwayRiders();
-    public Speedway_rider getSpeedwayRiderById(int id);
-    public Speedway_rider getSpeedwayRiderBySurname(String surname);
-    public List<Speedway_rider> getSpeedwayRidersBySurname(String surname);
+    public SpeedwayRider saveSpeedwayRider(SpeedwayRider speedway_rider);
+    public Iterable<SpeedwayRider> getAllSpeedwayRiders();
+    public SpeedwayRider getSpeedwayRiderById(int id);
+    public SpeedwayRider getSpeedwayRiderBySurname(String surname);
+    public List<SpeedwayRider> getSpeedwayRidersBySurname(String surname);
     public void deleteSpeedwayRider(int id);
-    public void updateSpeedwayRider(Speedway_rider  speedway_rider, int id);
+    public void updateSpeedwayRider(SpeedwayRider speedway_rider);
     public int getLastId();
-    public Speedway_rider getLastRider();
+    public SpeedwayRider getLastRider();
 
 }

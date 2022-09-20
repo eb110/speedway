@@ -13,27 +13,24 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Table(name = "speedway_match")
-@Entity(name = "speedway_match")
-public class Speedway_match {
+@Table(name = "speedway_team")
+@Entity(name = "speedway_team")
+public class SpeedwayTeam {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int id;
 
-    @OneToMany(targetEntity = Speedway_match_rider.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_id_match", referencedColumnName = "id")
-    private List<Speedway_match_rider> matchRiderList;
+    @OneToMany(targetEntity = SpeedwayMatchRider.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "FK_speedwayTeam_speedwayMatchRider", referencedColumnName = "id")
+    private List<SpeedwayMatchRider> matchRiderList;
 
-    @Column(name = "date_of_match")
-    private Date dateOfMatch;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "round")
-    private String round;
-
-    @Column(name = "type_of_game")
-    private String typeOfGame;
+    @Column(name = "full_name")
+    private String fullName;
     @Column(name = "created")
     private Date created;
     @Column(name = "last_updated")

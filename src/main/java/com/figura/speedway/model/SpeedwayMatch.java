@@ -7,24 +7,36 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Table(name = "inserted_match")
-@Entity(name = "inserted_match")
-public class Inserted_match {
+@Table(name = "speedway_match")
+@Entity(name = "speedway_match")
+public class SpeedwayMatch {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @OneToMany(targetEntity = SpeedwayMatchRider.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_speedwayMatch_speedwayMatchRider", referencedColumnName = "id")
+    private List<SpeedwayMatchRider> matchRiderList;
+
+    @Column(name = "date_of_match")
+    private Date dateOfMatch;
+
+    @Column(name = "round")
+    private String round;
+
+    @Column(name = "type_of_game")
+    private String typeOfGame;
     @Column(name = "created")
     private Date created;
     @Column(name = "last_updated")
     private Date lastUpdated;
+
 }

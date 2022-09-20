@@ -1,12 +1,14 @@
 package com.figura.speedway.serviceInterfaces;
 
-import com.figura.speedway.model.Speedway_match;
-import com.figura.speedway.model.Speedway_match_rider;
+import com.figura.speedway.model.SpeedwayMatchRider;
+
+import java.util.OptionalInt;
 
 public interface SpeedwayMatchRiderServiceInterface {
 
-    public Speedway_match_rider saveSpeedwayMatchRider(Speedway_match_rider speedway_match_rider);
-    public Speedway_match_rider getSpeedwayMatchRiderById(int id);
-    public Iterable<Speedway_match_rider> getAllSpeedwayMatchRiders();
+    public SpeedwayMatchRider saveSpeedwayMatchRider(SpeedwayMatchRider speedway_matchRider);
+    public SpeedwayMatchRider getSpeedwayMatchRiderById(int id);
+
+    public Iterable<SpeedwayMatchRider> getAllSpeedwayMatchRiders();
     public int getTheLastSpeedwayMatchRiderId();
 }

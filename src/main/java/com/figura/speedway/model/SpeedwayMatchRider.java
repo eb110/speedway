@@ -14,19 +14,19 @@ import java.util.Date;
 @ToString
 @Table(name = "speedway_match_rider")
 @Entity(name = "speedway_match_rider")
-public class Speedway_match_rider {
+public class SpeedwayMatchRider {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int id;
 
-    @Column(name = "fk_id_rider", nullable = false, columnDefinition = "INT(11) UNSIGNED")
-    private int fkIdRider;
-    @Column(name = "fk_id_team", nullable = false, columnDefinition = "INT(11) UNSIGNED")
-    private int fkIdTeam;
-    @Column(name = "fk_id_match", nullable = false, columnDefinition = "INT(11) UNSIGNED")
-    private int fkIdMatch;
+    @Column(name = "FK_speedwayRider_speedwayMatchRider", nullable = false, columnDefinition = "INT(11) UNSIGNED")
+    private int fk_SpeedwayRider_SpeedwayMatchRider;
+    @Column(name = "FK_speedwayTeam_speedwayMatchRider", nullable = false, columnDefinition = "INT(11) UNSIGNED")
+    private int fk_SpeedwayTeam_SpeedwayMatchRider;
+    @Column(name = "fk_speedwayMatch_speedwayMatchRider", nullable = false, columnDefinition = "INT(11) UNSIGNED")
+    private int fk_SpeedwayMatch_SpeedwayMatchRider;
 
     @Column(name = "rider_match_number")
     private int riderMatchNumber;

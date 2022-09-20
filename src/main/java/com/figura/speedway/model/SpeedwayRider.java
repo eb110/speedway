@@ -8,7 +8,6 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -16,16 +15,16 @@ import java.util.Set;
 @ToString
 @Table(name = "speedway_rider")
 @Entity(name = "speedway_rider")
-public class Speedway_rider {
+public class SpeedwayRider {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int id;
 
-    @OneToMany(targetEntity = Speedway_match_rider.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_id_rider", referencedColumnName = "id")
-    private List<Speedway_match_rider> matchRiderList;
+    @OneToMany(targetEntity = SpeedwayMatchRider.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "FK_speedwayRider_speedwayMatchRider", referencedColumnName = "id")
+    private List<SpeedwayMatchRider> matchRiderList;
 
     @Column(name = "name")
     private String name;

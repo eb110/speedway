@@ -1,11 +1,9 @@
 package com.figura.speedway.serviceInterfaces;
 
-import com.figura.speedway.model.Inserted_match;
-
-import java.util.List;
+import com.figura.speedway.model.InsertedMatch;
 
 public interface InsertedMatchesServiceInterface {
 
-    public Inserted_match saveInsertedMatch(Inserted_match inserted_match);
+    public InsertedMatch saveInsertedMatch(InsertedMatch inserted_match);
     public Boolean checkIfAlreadyExist (String name);
 }

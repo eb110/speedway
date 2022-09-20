@@ -1,10 +1,12 @@
 package com.figura.speedway.service;
 
-import com.figura.speedway.model.Speedway_match_rider;
+import com.figura.speedway.model.SpeedwayMatchRider;
 import com.figura.speedway.repository.SpeedwayMatchRiderRepository;
 import com.figura.speedway.serviceInterfaces.SpeedwayMatchRiderServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.OptionalInt;
 
 @Service
 public class SpeedwayMatchRiderService implements SpeedwayMatchRiderServiceInterface {
@@ -14,17 +16,17 @@ public class SpeedwayMatchRiderService implements SpeedwayMatchRiderServiceInter
 
 
     @Override
-    public Speedway_match_rider saveSpeedwayMatchRider(Speedway_match_rider speedway_match_rider) {
-        return speedwayMatchRiderRepository.save(speedway_match_rider);
+    public SpeedwayMatchRider saveSpeedwayMatchRider(SpeedwayMatchRider speedway_matchRider) {
+        return speedwayMatchRiderRepository.save(speedway_matchRider);
     }
 
     @Override
-    public Speedway_match_rider getSpeedwayMatchRiderById(int id) {
-        return speedwayMatchRiderRepository.findById(id).orElse(null);
+    public SpeedwayMatchRider getSpeedwayMatchRiderById(int id) {
+        return speedwayMatchRiderRepository.findById(id).orElseThrow();
     }
 
     @Override
-    public Iterable<Speedway_match_rider> getAllSpeedwayMatchRiders() {
+    public Iterable<SpeedwayMatchRider> getAllSpeedwayMatchRiders() {
         return speedwayMatchRiderRepository.findAll();
     }
 
