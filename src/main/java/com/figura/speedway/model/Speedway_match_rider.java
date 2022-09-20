@@ -21,12 +21,13 @@ public class Speedway_match_rider {
     @Column(name = "id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int id;
 
-    @Column(name = "fk_id_team", nullable = false, columnDefinition = "INT(11) UNSIGNED")
-    private int fkIdTeam;
     @Column(name = "fk_id_rider", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int fkIdRider;
+    @Column(name = "fk_id_team", nullable = false, columnDefinition = "INT(11) UNSIGNED")
+    private int fkIdTeam;
     @Column(name = "fk_id_match", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int fkIdMatch;
+
     @Column(name = "rider_match_number")
     private int riderMatchNumber;
     @Column(name = "home_away_side")
