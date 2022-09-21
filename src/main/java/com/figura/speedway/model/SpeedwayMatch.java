@@ -6,8 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Data
 @AllArgsConstructor
@@ -22,9 +21,8 @@ public class SpeedwayMatch {
     @Column(name = "id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int id;
 
-    @OneToMany(targetEntity = SpeedwayMatchRider.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_speedwayMatch_speedwayMatchRider", referencedColumnName = "id")
-    private List<SpeedwayMatchRider> matchRiderList;
+    @OneToMany(mappedBy = "speedwayMatch")
+    private List<SpeedwayMatchRider> speedwayMatchRidersList = new ArrayList<>();
 
     @Column(name = "date_of_match")
     private Date dateOfMatch;

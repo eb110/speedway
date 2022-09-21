@@ -11,8 +11,6 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Table(name = "speedway_match_rider")
 @Entity(name = "speedway_match_rider")
 public class SpeedwayMatchRider {
 
@@ -21,12 +19,17 @@ public class SpeedwayMatchRider {
     @Column(name = "id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int id;
 
-    @Column(name = "FK_speedwayRider_speedwayMatchRider", nullable = false, columnDefinition = "INT(11) UNSIGNED")
-    private int fk_SpeedwayRider_SpeedwayMatchRider;
-    @Column(name = "FK_speedwayTeam_speedwayMatchRider", nullable = false, columnDefinition = "INT(11) UNSIGNED")
-    private int fk_SpeedwayTeam_SpeedwayMatchRider;
-    @Column(name = "fk_speedwayMatch_speedwayMatchRider", nullable = false, columnDefinition = "INT(11) UNSIGNED")
-    private int fk_SpeedwayMatch_SpeedwayMatchRider;
+    @ManyToOne
+    @JoinColumn(name = "fk_speedway_rider_id", nullable = false)
+    private SpeedwayRider speedwayRider;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_speedway_match_id", nullable = false)
+    private SpeedwayMatch speedwayMatch;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_speedway_team_id", nullable = false)
+    private SpeedwayTeam speedwayTeam;
 
     @Column(name = "rider_match_number")
     private int riderMatchNumber;

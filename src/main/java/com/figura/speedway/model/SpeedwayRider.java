@@ -6,14 +6,11 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Table(name = "speedway_rider")
 @Entity(name = "speedway_rider")
 public class SpeedwayRider {
 
@@ -22,9 +19,8 @@ public class SpeedwayRider {
     @Column(name = "id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private int id;
 
-    @OneToMany(targetEntity = SpeedwayMatchRider.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "FK_speedwayRider_speedwayMatchRider", referencedColumnName = "id")
-    private List<SpeedwayMatchRider> matchRiderList;
+    @OneToMany(mappedBy = "speedwayRider")
+    private List<SpeedwayMatchRider> speedwayMatchRidersList = new ArrayList<>();
 
     @Column(name = "name")
     private String name;
