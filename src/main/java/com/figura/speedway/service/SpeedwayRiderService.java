@@ -32,9 +32,7 @@ public class SpeedwayRiderService implements SpeedwayRiderServiceInterface {
         speedwayRiderRepository.deleteById(id);
     }
     @Override
-    public void updateSpeedwayRider(SpeedwayRider speedway_rider) {
-        SpeedwayRider test = speedway_rider;
-        speedwayRiderRepository.save(speedway_rider); }
+    public void updateSpeedwayRider(SpeedwayRider speedway_rider) {speedwayRiderRepository.save(speedway_rider); }
     @Override
     public int getLastId() {
         return speedwayRiderRepository.getLastId();

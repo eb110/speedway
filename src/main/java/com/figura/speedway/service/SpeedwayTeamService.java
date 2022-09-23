@@ -19,7 +19,7 @@ public class SpeedwayTeamService implements SpeedwayTeamServiceInterface {
 
     @Override
     public SpeedwayTeam getSpeedwayTeamByName(String name) {
-        return speedwayTeamRepository.findByName(name).orElse(null);
+        return speedwayTeamRepository.findByName(name).orElseThrow();
     }
 
     @Override
