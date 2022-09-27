@@ -23,10 +23,12 @@ public class SpeedwayRiderService implements SpeedwayRiderServiceInterface {
     }
     @Override
     public SpeedwayRider getSpeedwayRiderById(int id) {
-        return speedwayRiderRepository.findById(id).orElseThrow();
+        return speedwayRiderRepository.findById(id).orElse(null);
     }
     public SpeedwayRider getSpeedwayRiderBySurname(String surname){ return speedwayRiderRepository.findBySurname(surname).orElseThrow(); }
-    public List<SpeedwayRider> getSpeedwayRidersBySurname(String surname){ return speedwayRiderRepository.getRidersBySurname(surname); }
+    public List<SpeedwayRider> getSpeedwayRidersBySurname(String surname){
+        System.out.println(surname);
+        return speedwayRiderRepository.getRidersBySurname(surname); }
     @Override
     public void deleteSpeedwayRider(int id) {
         speedwayRiderRepository.deleteById(id);

@@ -1,5 +1,6 @@
 package com.figura.speedway.service;
 
+import com.figura.speedway.exception.SpeedwayTeamNotFoundException;
 import com.figura.speedway.model.SpeedwayTeam;
 import com.figura.speedway.repository.SpeedwayTeamRepository;
 import com.figura.speedway.serviceInterfaces.SpeedwayTeamServiceInterface;
@@ -19,7 +20,7 @@ public class SpeedwayTeamService implements SpeedwayTeamServiceInterface {
 
     @Override
     public SpeedwayTeam getSpeedwayTeamByName(String name) {
-        return speedwayTeamRepository.findByName(name).orElseThrow();
+        return speedwayTeamRepository.findByName(name).orElse(null);
     }
 
     @Override

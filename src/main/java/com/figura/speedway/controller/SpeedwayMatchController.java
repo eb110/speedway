@@ -2,6 +2,7 @@ package com.figura.speedway.controller;
 
 
 import com.figura.speedway.model.SpeedwayMatch;
+import com.figura.speedway.model.SpeedwayRider;
 import com.figura.speedway.service.SpeedwayMatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,10 @@ public class SpeedwayMatchController {
     public int getLastMatchId(){
         int res = speedwayMatchService.getTheLastSpeedwayMatchId();
         return res;
+    }
+    @GetMapping("/getLastMatch")
+    public SpeedwayMatch getLastMatch(){
+        return speedwayMatchService.getLastMatch();
     }
 
 }
