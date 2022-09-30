@@ -7,6 +7,8 @@ import com.figura.speedway.serviceInterfaces.SpeedwayMatchServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class SpeedwayMatchService implements SpeedwayMatchServiceInterface {
 
@@ -17,8 +19,8 @@ public class SpeedwayMatchService implements SpeedwayMatchServiceInterface {
         return speedwayMatchRepository.save(speedway_match);
     }
     @Override
-    public SpeedwayMatch getSpeedwayMatchById(int id) {
-        return speedwayMatchRepository.findById(id).orElseThrow();
+    public Optional<SpeedwayMatch> getSpeedwayMatchById(int id) {
+        return speedwayMatchRepository.findById(id);
     }
     @Override
     public Iterable<SpeedwayMatch> getAllSpeedwayMatches(){

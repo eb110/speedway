@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SpeedwayRiderService implements SpeedwayRiderServiceInterface {
@@ -22,12 +23,13 @@ public class SpeedwayRiderService implements SpeedwayRiderServiceInterface {
         return speedwayRiderRepository.findAll();
     }
     @Override
-    public SpeedwayRider getSpeedwayRiderById(int id) {
-        return speedwayRiderRepository.findById(id).orElse(null);
+    public Optional<SpeedwayRider> getSpeedwayRiderById(int id) {
+        return speedwayRiderRepository.findById(id);
     }
-    public SpeedwayRider getSpeedwayRiderBySurname(String surname){ return speedwayRiderRepository.findBySurname(surname).orElseThrow(); }
+    public Optional<SpeedwayRider> getSpeedwayRiderBySurname(String surname){
+        return speedwayRiderRepository.findBySurname(surname);
+    }
     public List<SpeedwayRider> getSpeedwayRidersBySurname(String surname){
-        System.out.println(surname);
         return speedwayRiderRepository.getRidersBySurname(surname); }
     @Override
     public void deleteSpeedwayRider(int id) {

@@ -7,6 +7,8 @@ import com.figura.speedway.serviceInterfaces.SpeedwayTeamServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class SpeedwayTeamService implements SpeedwayTeamServiceInterface {
 
@@ -19,8 +21,8 @@ public class SpeedwayTeamService implements SpeedwayTeamServiceInterface {
     }
 
     @Override
-    public SpeedwayTeam getSpeedwayTeamByName(String name) {
-        return speedwayTeamRepository.findByName(name).orElse(null);
+    public Optional<SpeedwayTeam> getSpeedwayTeamByName(String name) {
+        return speedwayTeamRepository.findByName(name);
     }
 
     @Override

@@ -5,7 +5,11 @@ import com.figura.speedway.model.SpeedwayMatch;
 import com.figura.speedway.model.SpeedwayRider;
 import com.figura.speedway.service.SpeedwayMatchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/match")
@@ -15,8 +19,12 @@ public class SpeedwayMatchController {
     SpeedwayMatchService speedwayMatchService;
 
     @GetMapping("/getMatchById/{id}")
-        public SpeedwayMatch getMatchById(@PathVariable("id") int id){
-            return speedwayMatchService.getSpeedwayMatchById(id);
+        public ResponseEntity<SpeedwayMatch> getMatchById(@PathVariable("id") int id){
+            Optional<SpeedwayMatch> sm = speedwayMatchService.getSpeedwayMatchById(id);
+            if(sm.isEmpty())
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+
+            return ResponseEntity.status(HttpStatus.OK).body(sm.get());
     }
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addMatch")

@@ -3,8 +3,11 @@ package com.figura.speedway.controller;
 import com.figura.speedway.model.SpeedwayRider;
 import com.figura.speedway.service.SpeedwayRiderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/rider")
@@ -23,12 +26,20 @@ public class SpeedwayRiderController {
             return speedwayRiderService.getAllSpeedwayRiders();
         }
     @GetMapping("/getById/{id}")
-    public SpeedwayRider getRider(@PathVariable("id") int id){
-        return speedwayRiderService.getSpeedwayRiderById(id);
+    public ResponseEntity<SpeedwayRider> getRider(@PathVariable("id") int id){
+        Optional<SpeedwayRider> sr = speedwayRiderService.getSpeedwayRiderById(id);
+        if(sr.isEmpty())
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+
+        return ResponseEntity.status(HttpStatus.OK).body(sr.get());
     }
     @GetMapping("/getBySurname/{surname}")
-    public SpeedwayRider getRider(@PathVariable("surname") String surname){
-        return speedwayRiderService.getSpeedwayRiderBySurname(surname);
+    public ResponseEntity<SpeedwayRider> getRider(@PathVariable("surname") String surname){
+        Optional<SpeedwayRider> sr = speedwayRiderService.getSpeedwayRiderBySurname(surname);
+        if(sr.isEmpty())
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+
+        return ResponseEntity.status(HttpStatus.OK).body(sr.get());
     }
     @GetMapping("/getAllBySurname/{surname}")
     public List<SpeedwayRider> getRidersBySurname(@PathVariable("surname") String surname){

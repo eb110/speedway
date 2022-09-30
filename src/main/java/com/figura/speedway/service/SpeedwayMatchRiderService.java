@@ -6,6 +6,7 @@ import com.figura.speedway.serviceInterfaces.SpeedwayMatchRiderServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.OptionalInt;
 
 @Service
@@ -21,8 +22,8 @@ public class SpeedwayMatchRiderService implements SpeedwayMatchRiderServiceInter
     }
 
     @Override
-    public SpeedwayMatchRider getSpeedwayMatchRiderById(int id) {
-        return speedwayMatchRiderRepository.findById(id).orElseThrow();
+    public Optional<SpeedwayMatchRider> getSpeedwayMatchRiderById(int id) {
+        return speedwayMatchRiderRepository.findById(id);
     }
 
     @Override

@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/team")
 public class SpeedwayTeamController {
@@ -21,19 +23,13 @@ public class SpeedwayTeamController {
         return "the team has been added to the data base";
     }
 
-    /*
     @GetMapping("/getByName/{name}")
     public ResponseEntity<SpeedwayTeam> getTeam(@PathVariable("name") String name){
-        SpeedwayTeam speedwayTeam = speedwayTeamService.getSpeedwayTeamByName(name);
-        if(speedwayTeam != null)
-            return new ResponseEntity<>(speedwayTeam, HttpStatus.FOUND);
+        Optional<SpeedwayTeam> st = speedwayTeamService.getSpeedwayTeamByName(name);
+        if(st.isEmpty())
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-    }*/
-
-    @GetMapping("/getByName/{name}")
-    public SpeedwayTeam getTeam(@PathVariable("name") String name){
-        return speedwayTeamService.getSpeedwayTeamByName(name);
+        return ResponseEntity.status(HttpStatus.OK).body(st.get());
     }
     @DeleteMapping(value = "/deleteTeam/{id}")
     public void deleteTeam(@PathVariable("id") int id) {speedwayTeamService.deleteSpeedwayTeam(id);}

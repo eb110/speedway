@@ -2,9 +2,11 @@ package com.figura.speedway.serviceInterfaces;
 
 import com.figura.speedway.model.SpeedwayTeam;
 
+import java.util.Optional;
+
 public interface SpeedwayTeamServiceInterface {
     public SpeedwayTeam saveSpeedwayTeam(SpeedwayTeam speedway_team);
-    public SpeedwayTeam getSpeedwayTeamByName(String name);
+    public Optional<SpeedwayTeam> getSpeedwayTeamByName(String name);
     public void deleteSpeedwayTeam(int id);
     public int getTheLastId();
 }
