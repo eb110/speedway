@@ -16,6 +16,7 @@ public class InsertedMatchService implements InsertedMatchesServiceInterface {
 
     @Override
     public InsertedMatch saveInsertedMatch(InsertedMatch inserted_match) {
+        System.out.println("git test");
         return insertedMatchesRepository.save(inserted_match);
     }
 
