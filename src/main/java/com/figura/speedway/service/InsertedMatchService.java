@@ -16,7 +16,6 @@ public class InsertedMatchService implements InsertedMatchesServiceInterface {
 
     @Override
     public InsertedMatch saveInsertedMatch(InsertedMatch inserted_match) {
-        System.out.println("test of safety precautions");
         return insertedMatchesRepository.save(inserted_match);
     }
 
