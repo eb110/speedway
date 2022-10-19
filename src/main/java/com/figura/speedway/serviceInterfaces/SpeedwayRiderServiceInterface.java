@@ -10,7 +10,6 @@ public interface SpeedwayRiderServiceInterface {
     public SpeedwayRider saveSpeedwayRider(SpeedwayRider speedway_rider);
     public Iterable<SpeedwayRider> getAllSpeedwayRiders();
     public Optional<SpeedwayRider> getSpeedwayRiderById(int id);
-    public Optional<SpeedwayRider> getSpeedwayRiderBySurname(String surname);
     public List<SpeedwayRider> getSpeedwayRidersBySurname(String surname);
     public void deleteSpeedwayRider(int id);
     public void updateSpeedwayRider(SpeedwayRider speedway_rider);

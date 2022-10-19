@@ -7,8 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface SpeedwayRiderRepository extends JpaRepository <SpeedwayRider, Integer> {
-    Optional<SpeedwayRider> findBySurname(String surname);
-   // @Query("SELECT sr from speedway_rider sr where sr.surname==?1")
+
     @Query(value="SELECT * from speedway_rider sr where sr.surname=?1", nativeQuery = true)
     List<SpeedwayRider> getRidersBySurname(String surname);
     @Query(value="SELECT max(id) FROM speedway_rider", nativeQuery = true)

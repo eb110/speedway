@@ -26,9 +26,6 @@ public class SpeedwayRiderService implements SpeedwayRiderServiceInterface {
     public Optional<SpeedwayRider> getSpeedwayRiderById(int id) {
         return speedwayRiderRepository.findById(id);
     }
-    public Optional<SpeedwayRider> getSpeedwayRiderBySurname(String surname){
-        return speedwayRiderRepository.findBySurname(surname);
-    }
     public List<SpeedwayRider> getSpeedwayRidersBySurname(String surname){
         return speedwayRiderRepository.getRidersBySurname(surname); }
     @Override

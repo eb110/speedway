@@ -26,7 +26,7 @@ public class SpeedwayTeamController {
     @GetMapping("/getByName/{name}")
     public ResponseEntity<SpeedwayTeam> getTeam(@PathVariable("name") String name){
         Optional<SpeedwayTeam> st = speedwayTeamService.getSpeedwayTeamByName(name);
-        if(st.isEmpty())
+        if(!st.isPresent())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 
         return ResponseEntity.status(HttpStatus.OK).body(st.get());

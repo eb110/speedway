@@ -21,7 +21,7 @@ public class SpeedwayMatchController {
     @GetMapping("/getMatchById/{id}")
         public ResponseEntity<SpeedwayMatch> getMatchById(@PathVariable("id") int id){
             Optional<SpeedwayMatch> sm = speedwayMatchService.getSpeedwayMatchById(id);
-            if(sm.isEmpty())
+            if(!sm.isPresent())
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 
             return ResponseEntity.status(HttpStatus.OK).body(sm.get());

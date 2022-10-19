@@ -28,15 +28,7 @@ public class SpeedwayRiderController {
     @GetMapping("/getById/{id}")
     public ResponseEntity<SpeedwayRider> getRider(@PathVariable("id") int id){
         Optional<SpeedwayRider> sr = speedwayRiderService.getSpeedwayRiderById(id);
-        if(sr.isEmpty())
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-
-        return ResponseEntity.status(HttpStatus.OK).body(sr.get());
-    }
-    @GetMapping("/getBySurname/{surname}")
-    public ResponseEntity<SpeedwayRider> getRider(@PathVariable("surname") String surname){
-        Optional<SpeedwayRider> sr = speedwayRiderService.getSpeedwayRiderBySurname(surname);
-        if(sr.isEmpty())
+        if(!sr.isPresent())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 
         return ResponseEntity.status(HttpStatus.OK).body(sr.get());

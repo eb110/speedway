@@ -14,7 +14,7 @@
 	<name>speedway</name>
 	<description>Demo project for speedway app</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>8</java.version>
 	</properties>
 
 	<dependencies>
