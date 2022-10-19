@@ -7,6 +7,7 @@ import com.figura.speedway.serviceInterfaces.SpeedwayTeamServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,6 +32,11 @@ public class SpeedwayTeamService implements SpeedwayTeamServiceInterface {
     @Override
     public int getTheLastId() {
         return speedwayTeamRepository.getLastId();
+    }
+
+    @Override
+    public List<SpeedwayTeam> getAllTeams() {
+        return speedwayTeamRepository.findAll();
     }
 
 
