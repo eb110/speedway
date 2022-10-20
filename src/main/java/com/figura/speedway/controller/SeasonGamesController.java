@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -23,6 +24,11 @@ public class SeasonGamesController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 
         return ResponseEntity.status(HttpStatus.OK).body(sg.get());
+    }
+
+    @GetMapping("/getAllBySeasonId/{id}")
+    public List<SeasonGames> getAllBySeasonId(@PathVariable("id") int id){
+        return seasonGamesService.getAllBySeasonId(id);
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
