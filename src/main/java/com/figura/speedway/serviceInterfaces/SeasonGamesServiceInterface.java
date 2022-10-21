@@ -9,6 +9,6 @@ public interface SeasonGamesServiceInterface {
 
     public SeasonGames saveSeasonGames(SeasonGames seasonGames);
     public Optional<SeasonGames> getSeasonGamesById(int id);
-
     public List<SeasonGames> getAllBySeasonId(int id);
+    public void updateSeasonGameInsertedStateToTrue(SeasonGames sg);
 }

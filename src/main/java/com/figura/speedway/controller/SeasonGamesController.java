@@ -25,16 +25,20 @@ public class SeasonGamesController {
 
         return ResponseEntity.status(HttpStatus.OK).body(sg.get());
     }
-
     @GetMapping("/getAllBySeasonId/{id}")
     public List<SeasonGames> getAllBySeasonId(@PathVariable("id") int id){
         return seasonGamesService.getAllBySeasonId(id);
     }
-
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addSeasonGames")
     private String saveSeasonGames(@RequestBody SeasonGames seasonGames){
         seasonGamesService.saveSeasonGames(seasonGames);
         return "season games has been added to the db";
+    }
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PutMapping("/updateSeasonGames")
+    private String updateSeasonGames(@RequestBody SeasonGames sg){
+        seasonGamesService.updateSeasonGameInsertedStateToTrue(sg);
+        return "season games inserted status has been set to true";
     }
 }

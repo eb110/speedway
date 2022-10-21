@@ -41,4 +41,11 @@ public class SeasonController {
         return "season has been added to the db";
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PutMapping("/updateSeasontopLeague")
+    private String updateSeasonTopLeague(@RequestBody Season season){
+        seasonService.updateTopLeagueState(season);
+        return "season top league status set to true";
+    }
+
 }
