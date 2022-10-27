@@ -22,6 +22,7 @@ public class SeasonGames {
     private boolean inserted;
     private Date created;
     private Date lastUpdated;
+    private String walkover;
     @ManyToOne
     @JoinColumn(nullable = false)
     private Season season;

@@ -28,11 +28,6 @@ public class SeasonGamesService implements SeasonGamesServiceInterface {
     }
     @Override
     public void updateSeasonGameInsertedStateToTrue(SeasonGames sg) {
-        Optional<SeasonGames> osg = seasonGamesRepository.findById(sg.getId());
-        if(osg.isPresent()){
-            SeasonGames sgt = osg.get();
-            sgt.setInserted(true);
-            seasonGamesRepository.save(sgt);
-        }
+        seasonGamesRepository.save(sg);
     }
 }
