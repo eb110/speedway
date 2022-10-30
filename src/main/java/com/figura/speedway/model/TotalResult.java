@@ -2,19 +2,25 @@ package com.figura.speedway.model;
 
 import lombok.*;
 import javax.persistence.*;
-import java.util.Date;
+import java.util.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class InsertedMatch {
+public class TotalResult {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(nullable = false)
     private int id;
-    private String name;
+
+    private int game;
+    private double point;
+    private int bonus;
+    private int heat;
+    private int fullPerfect;
+    private int paidPerfect;
     private Date created;
     private Date lastUpdated;
 }
