@@ -36,4 +36,10 @@ public class TotalResultController {
         return "total result has been updated";
     }
 
+    @GetMapping("/getTotalOfAllRiders")
+    public ResponseEntity<TotalResult> calculateAllRiders(){
+        TotalResult tr = totalResultService.calculateRiders();
+        return ResponseEntity.status(HttpStatus.OK).body(tr);
+    }
+
 }
