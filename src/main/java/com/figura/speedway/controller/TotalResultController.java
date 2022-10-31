@@ -2,6 +2,7 @@ package com.figura.speedway.controller;
 
 import com.figura.speedway.model.TotalResult;
 import com.figura.speedway.service.TotalResultService;
+import com.figura.speedway.service.dtos.RidersTotalDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,8 +38,8 @@ public class TotalResultController {
     }
 
     @GetMapping("/getTotalOfAllRiders")
-    public ResponseEntity<TotalResult> calculateAllRiders(){
-        TotalResult tr = totalResultService.calculateRiders();
+    public ResponseEntity<RidersTotalDto> calculateAllRiders(){
+        RidersTotalDto tr = totalResultService.calculateRiders();
         return ResponseEntity.status(HttpStatus.OK).body(tr);
     }
 

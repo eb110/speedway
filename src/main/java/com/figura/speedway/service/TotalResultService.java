@@ -3,6 +3,7 @@ package com.figura.speedway.service;
 import com.figura.speedway.model.SpeedwayRider;
 import com.figura.speedway.model.TotalResult;
 import com.figura.speedway.repository.TotalResultRepository;
+import com.figura.speedway.service.dtos.RidersTotalDto;
 import com.figura.speedway.serviceInterfaces.TotalResultServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +19,9 @@ public class TotalResultService implements TotalResultServiceInterface {
     @Autowired
     SpeedwayRiderService speedwayRiderService;
 
-    public TotalResult calculateRiders() {
+    public RidersTotalDto calculateRiders() {
         Iterable<SpeedwayRider> riders = speedwayRiderService.getAllSpeedwayRiders();
-        TotalResult tr = new TotalResult();
+        RidersTotalDto ridersTotalDto = new RidersTotalDto();
         double pts = 0;
         int bns = 0;
         int gms = 0;
@@ -37,13 +38,13 @@ public class TotalResultService implements TotalResultServiceInterface {
             pp += sr.getPaidPerfects();
             hts += sr.getHeats();
         }
-        tr.setBonus(bns);
-        tr.setHeat(hts);
-        tr.setGame(gms);
-        tr.setPoint(pts);
-        tr.setFullPerfect(fp);
-        tr.setPaidPerfect(pp);
-        return tr;
+        ridersTotalDto.setBonuses(bns);
+        ridersTotalDto.setHeats(hts);
+        ridersTotalDto.setGames(gms);
+        ridersTotalDto.setPoints(pts);
+        ridersTotalDto.setFullPerfects(fp);
+        ridersTotalDto.setPaidPerfects(pp);
+        return ridersTotalDto;
     }
 
     @Override
